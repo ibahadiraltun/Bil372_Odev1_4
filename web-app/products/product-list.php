@@ -1,5 +1,5 @@
 <?php
-include '../config.php';
+  include '../config.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -7,7 +7,7 @@ include '../config.php';
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Organizations</title>
+	<title>Products</title>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -24,10 +24,10 @@ include '../config.php';
             <div class="table-title">
                 <div class="row">
                     <div class="col-sm-6">
-						          <h2>Manage <b>Organizations</b></h2>
+						          <h2>Manage <b>Products</b></h2>
 					          </div>
                     <div class="col-sm-6">
-                      <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons"></i> <span>Add Organization</span></a>
+                      <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons"></i> <span>Add Product</span></a>
                       <a href="JavaScript:void(0);" class="btn btn-danger" id="delete_multiple"><i class="material-icons"></i> <span>Delete</span></a>						
                     </div>
                   </div>
@@ -42,48 +42,48 @@ include '../config.php';
 							</span>
 						</th>
             <th>ID</th>
+            <th>CODE</th>
             <th>NAME</th>
+						<th>SHORTNAME</th>
             <th>ABSTRACT</th>
-						<th>ADDRESS</th>
-            <th>CITY</th>
-            <th>DISTRICT</th>
-            <th>TYPE</th>
+            <th>CATEGORY</th>
+            <th>ACTIVE</th>
             </tr>
           </thead>
 				<tbody>
 				
 				<?php
-				$result = mysqli_query($link,"SELECT * FROM organizations");
+				$result = mysqli_query($link,"SELECT * FROM product");
 					$i=1;
 					while($row = mysqli_fetch_array($result)) {
 				?>
-				<tr id="<?php echo $row["org_id"]; ?>">
+				<tr id="<?php echo $row["m_syscode"]; ?>">
 				<td>
 							<span class="custom-checkbox">
-								<input type="checkbox" class="user_checkbox" data-user-id="<?php echo $row["org_id"]; ?>">
+								<input type="checkbox" class="user_checkbox" data-user-id="<?php echo $row["m_syscode"]; ?>">
 								<label for="checkbox2"></label>
 							</span>
 						</td>
-					<td><?php echo $row["org_id"]; ?></td>
-					<td><?php echo $row["org_name"]; ?></td>
-					<td><?php echo $row["org_abstract"]; ?></td>
-					<td><?php echo $row["org_address"]; ?></td>
-          <td><?php echo $row["org_city"]; ?></td>
-          <td><?php echo $row["org_district"]; ?></td>
-          <td><?php echo $row["org_type"]; ?></td>
+					<td><?php echo $row["m_syscode"]; ?></td>
+					<td><?php echo $row["m_code"]; ?></td>
+					<td><?php echo $row["m_name"]; ?></td>
+					<td><?php echo $row["m_shortname"]; ?></td>
+          <td><?php echo $row["m_abstract"]; ?></td>
+          <td><?php echo $row["m_category"]; ?></td>
+          <td><?php echo $row["is_active"]; ?></td>
 					<td>
 						<a href="#editEmployeeModal" class="edit" data-toggle="modal">
 							<i class="material-icons update" data-toggle="tooltip" 
-							data-id="<?php echo $row["org_id"]; ?>"
-							data-name="<?php echo $row["org_name"]; ?>"
-							data-abstract="<?php echo $row["org_abstract"]; ?>"
-							data-address="<?php echo $row["org_address"]; ?>"
-              data-city="<?php echo $row["org_city"]; ?>"
-              data-district="<?php echo $row["org_district"]; ?>"
-              data-type="<?php echo $row["org_type"]; ?>"
+							data-id="<?php echo $row["m_syscode"]; ?>"
+							data-code="<?php echo $row["m_code"]; ?>"
+							data-name="<?php echo $row["m_name"]; ?>"
+							data-shortname="<?php echo $row["m_shortname"]; ?>"
+              data-abstract="<?php echo $row["m_abstract"]; ?>"
+              data-category="<?php echo $row["m_category"]; ?>"
+              data-active="<?php echo $row["is_active"]; ?>"
 							title="Edit"></i>
 						</a>
-						<a href="#deleteEmployeeModal" class="delete" data-id="<?php echo $row["org_id"]; ?>" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" 
+						<a href="#deleteEmployeeModal" class="delete" data-id="<?php echo $row["m_syscode"]; ?>" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" 
 						 title="Delete"></i></a>
                     </td>
 				</tr>
@@ -102,34 +102,34 @@ include '../config.php';
 			<div class="modal-content">
 				<form id="user_form">
 					<div class="modal-header">						
-						<h4 class="modal-title">Add Organization</h4>
+						<h4 class="modal-title">Add Product</h4>
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 					</div>
-					<div class="modal-body">					
+					<div class="modal-body">		
+            <div class="form-group">
+							<label>CODE</label>
+							<input type="text" id="code" name="code" class="form-control" required>
+						</div>		
 						<div class="form-group">
 							<label>NAME</label>
 							<input type="text" id="name" name="name" class="form-control" required>
+            </div>
+            <div class="form-group">
+							<label>SHORTNAME</label>
+							<input type="text" id="shortname" name="shortname" class="form-control" required>
 						</div>
 						<div class="form-group">
 							<label>ABSTRACT</label>
 							<input type="text" id="abstract" name="abstract" class="form-control" required>
 						</div>
 						<div class="form-group">
-							<label>ADDRESS</label>
-							<input type="text" id="address" name="address" class="form-control" required>
+							<label>CATEGORY</label>
+							<input type="text" id="category" name="category" class="form-control" required>
 						</div>
 						<div class="form-group">
-							<label>CITY</label>
-							<input type="text" id="city" name="city" class="form-control" required>
+							<label>ACTIVE</label>
+							<input type="text" id="active" name="active" class="form-control" required>
             </div>					
-            <div class="form-group">
-							<label>DISTRICT</label>
-							<input type="text" id="district" name="district" class="form-control" required>
-						</div>					
-            <div class="form-group">
-							<label>TYPE</label>
-							<input type="text" id="_type" name="_type" class="form-control" required>
-						</div>					
 					</div>
 					<div class="modal-footer">
 					  <input type="hidden" value="1" name="type">
@@ -146,38 +146,34 @@ include '../config.php';
 			<div class="modal-content">
 				<form id="update_form">
 					<div class="modal-header">						
-						<h4 class="modal-title">Edit Organization</h4>
+						<h4 class="modal-title">Edit Product</h4>
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 					</div>
 					<div class="modal-body">
 						<input type="hidden" id="id_u" name="id" class="form-control" required>					
 						<div class="form-group">
+							<label>CODE</label>
+							<input type="text" id="code_u" name="code" class="form-control" required>
+						</div>
+						<div class="form-group">
 							<label>NAME</label>
 							<input type="text" id="name_u" name="name" class="form-control" required>
 						</div>
 						<div class="form-group">
+							<label>SHORTNAME</label>
+							<input type="text" id="shortname_u" name="shortname" class="form-control" required>
+						</div>
+						<div class="form-group">
 							<label>ABSTRACT</label>
 							<input type="text" id="abstract_u" name="abstract" class="form-control" required>
-						</div>
-						<div class="form-group">
-							<label>ADDRESS</label>
-							<input type="text" id="address_u" name="address" class="form-control" required>
-						</div>
-						<div class="form-group">
-							<label>CITY</label>
-							<input type="text" id="city_u" name="city" class="form-control" required>
             </div>					
             <div class="form-group">
-							<label>DISTRICT</label>
-							<input type="text" id="district_u" name="district" class="form-control" required>
+							<label>CATEGORY</label>
+							<input type="text" id="category_u" name="category" class="form-control" required>
 						</div>					
             <div class="form-group">
-							<label>TYPE</label>
-							<input type="text" id="type_u" name="type" class="form-control" required>
-						</div>					
-						<div class="form-group">
-							<label>City</label>
-							<input type="text" id="city_u" name="city" class="form-control" required>
+							<label>ACTIVE</label>
+							<input type="text" id="active_u" name="active" class="form-control" required>
 						</div>					
 					</div>
 					<div class="modal-footer">
