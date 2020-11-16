@@ -38,6 +38,7 @@ $(document).on('click','#update',function(e) {
     type: "post",
     url: "./save.php",
     success: function(dataResult){
+        console.log(dataResult)
         var dataResult = JSON.parse(dataResult);
         if(dataResult.statusCode==200){
           $('#editEmployeeModal').modal('hide');

@@ -91,12 +91,8 @@ include '../config.php';
 					</div>
 					<div class="modal-body">					
 						<div class="form-group">
-							<label>FEATURE ID</label>
-							<input type="text" id="name" name="name" class="form-control" required>
-						</div>
-						<div class="form-group">
 							<label>FEATURE NAME</label>
-							<input type="abstract" id="abstract" name="abstract" class="form-control" required>
+							<input type="text" id="name" name="name" class="form-control" required>
 						</div>			
 					</div>
 					<div class="modal-footer">
@@ -120,12 +116,8 @@ include '../config.php';
 					<div class="modal-body">
 						<input type="hidden" id="id_u" name="id" class="form-control" required>					
 						<div class="form-group">
-							<label>FUTURE ID</label>
-							<input type="text" id="name_u" name="name" class="form-control" required>
-						</div>
-						<div class="form-group">
 							<label>FUTURE NAME</label>
-							<input type="abstract" id="abstract_u" name="abstract" class="form-control" required>
+							<input type="text" id="name_u" name="name" class="form-control" required>
 						</div>								
 					</div>
 					<div class="modal-footer">

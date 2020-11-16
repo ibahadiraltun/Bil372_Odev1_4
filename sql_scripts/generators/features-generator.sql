@@ -1,3 +1,4 @@
+use imece;
 CREATE TABLE  FEATURES(
 FEATURE_ID INT not null auto_increment,
 FEATURE_NAME  VARCHAR(200),
