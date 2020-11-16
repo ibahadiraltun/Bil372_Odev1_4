@@ -1,0 +1,9 @@
+use imece;
+create table MANUFACTURERS(
+MANUFACTURER_ID int not null auto_increment,
+MANUFACTURER_NAME  VARCHAR(200),
+MANUFACTURER_ADDRESS  VARCHAR(200),
+CITY  INTEGER,
+COUNTRY varchar(3),
+primary key (MANUFACTURER_ID)
+);
