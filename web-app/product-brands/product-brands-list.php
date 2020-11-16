@@ -7,7 +7,7 @@ include '../config.php';
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Organizations</title>
+	<title>PRODUCT BRANDS</title>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -24,10 +24,10 @@ include '../config.php';
             <div class="table-title">
                 <div class="row">
                     <div class="col-sm-6">
-						          <h2>Manage <b>Product_Brands</b></h2>
+						          <h2>Manage <b>Product Brands</b></h2>
 					          </div>
                     <div class="col-sm-6">
-                      <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons"></i> <span>Add Organization</span></a>
+                      <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons"></i> <span>Add Product</span></a>
                       <a href="JavaScript:void(0);" class="btn btn-danger" id="delete_multiple"><i class="material-icons"></i> <span>Delete</span></a>						
                     </div>
                   </div>
@@ -50,31 +50,31 @@ include '../config.php';
 				<tbody>
 				
 				<?php
-				$result = mysqli_query($link,"SELECT * FROM product_brands");
+        $result = mysqli_query($link,"SELECT * FROM product_brands");
 					$i=1;
 					while($row = mysqli_fetch_array($result)) {
 				?>
-				<tr id="<?php echo $row["org_id"]; ?>">
+				<tr id="<?php echo $row["brand_barcode"]; ?>">
 				<td>
 							<span class="custom-checkbox">
-								<input type="checkbox" class="user_checkbox" data-user-id="<?php echo $row["BRAND_BARCODE"]; ?>">
+								<input type="checkbox" class="user_checkbox" data-user-id="<?php echo $row["brand_barcode"]; ?>" data-syscode="<?php echo $row["m_syscode"]; ?>">
 								<label for="checkbox2"></label>
 							</span>
 						</td>
-					<td><?php echo $row["BRAND_BARCODE"]; ?></td>
-					<td><?php echo $row["M_SYSCODE"]; ?></td>
-					<td><?php echo $row["BRAND_NAME"]; ?></td>
-					<td><?php echo $row["MANUFACTURER_ID"]; ?></td>
+					<td><?php echo $row["brand_barcode"]; ?></td>
+					<td><?php echo $row["m_syscode"]; ?></td>
+					<td><?php echo $row["brand_name"]; ?></td>
+					<td><?php echo $row["manufacturer_id"]; ?></td>
 					<td>
 						<a href="#editEmployeeModal" class="edit" data-toggle="modal">
 							<i class="material-icons update" data-toggle="tooltip" 
-							data-barcode="<?php echo $row["BRAND_BARCODE"]; ?>"
-							data-syscode="<?php echo $row["M_SYSCODE"]; ?>"
-							data-name="<?php echo $row["BRAND_NAME"]; ?>"
-							data-manufacturerId="<?php echo $row["MANUFACTURER_ID"]; ?>"
+							data-barcode="<?php echo $row["brand_barcode"]; ?>"
+							data-syscode="<?php echo $row["m_syscode"]; ?>"
+							data-name="<?php echo $row["brand_name"]; ?>"
+							data-manufacturerId="<?php echo $row["manufacturer_id"]; ?>"
 							title="Edit"></i>
 						</a>
-						<a href="#deleteEmployeeModal" class="delete" data-id="<?php echo $row["BRAND_BARCODE"]; ?>" data-toggle="modal"><i class="material-icons" data-toggle="tooltip"
+						<a href="#deleteEmployeeModal" class="delete" data-id="<?php echo $row["brand_barcode"]; ?>" data-syscode="<?php echo $row["m_syscode"]; ?>" data-toggle="modal"><i class="material-icons" data-toggle="tooltip"
 						 title="Delete"></i></a>
                     </td>
 				</tr>
@@ -150,7 +150,7 @@ include '../config.php';
 						<div class="form-group">
 							<label>MANUFACTURER_ID</label>
 							<input type="text" id="manufacturerId_u" name="manufacturerId" class="form-control" required>
-                         </div>
+            </div>
 					</div>
 					<div class="modal-footer">
 					<input type="hidden" value="2" name="type">
@@ -161,4 +161,27 @@ include '../config.php';
 			</div>
 		</div>
 	</div>
-	   
+	<div id="deleteEmployeeModal" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<form>
+					<div class="modal-header">						
+						<h4 class="modal-title">Delete Manufacturer</h4>
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+					</div>
+					<div class="modal-body">
+            <input type="hidden" id="id_d" name="barcode" class="form-control">
+            <input type="hidden" id="syscode_d" name="syscode" class="form-control">
+						<p>Are you sure you want to delete these Records?</p>
+						<p class="text-warning"><small>This action cannot be undone.</small></p>
+					</div>
+					<div class="modal-footer">
+						<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+						<button type="button" class="btn btn-danger" id="delete">Delete</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>    

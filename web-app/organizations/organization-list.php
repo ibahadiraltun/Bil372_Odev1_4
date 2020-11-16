@@ -173,11 +173,7 @@ include '../config.php';
 						</div>					
             <div class="form-group">
 							<label>TYPE</label>
-							<input type="text" id="type_u" name="type" class="form-control" required>
-						</div>					
-						<div class="form-group">
-							<label>City</label>
-							<input type="text" id="city_u" name="city" class="form-control" required>
+							<input type="text" id="type_u" name="_type" class="form-control" required>
 						</div>					
 					</div>
 					<div class="modal-footer">

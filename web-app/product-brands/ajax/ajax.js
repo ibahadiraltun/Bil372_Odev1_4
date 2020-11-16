@@ -38,6 +38,7 @@ $(document).on('click','#update',function(e) {
     type: "post",
     url: "./save.php",
     success: function(dataResult){
+        console.log(dataResult)
         var dataResult = JSON.parse(dataResult);
         if(dataResult.statusCode==200){
           $('#editEmployeeModal').modal('hide');
@@ -52,18 +53,22 @@ $(document).on('click','#update',function(e) {
 });
 $(document).on("click", ".delete", function() { 
   var id=$(this).attr("data-id");
+  var syscode = $(this).attr("data-syscode");
   $('#id_d').val(id);
-  
+  $('#syscode_d').val(syscode);
 });
-$(document).on("click", "#delete", function() { 
+$(document).on("click", "#delete", function() {
+  data = {
+    type:3,
+    id: $("#id_d").val(),
+    syscode: $("#syscode_d").val()
+  }
+  console.log(data)
   $.ajax({
     url: "./save.php",
     type: "POST",
     cache: false,
-    data:{
-      type:3,
-      id: $("#id_d").val()
-    },
+    data,
     success: function(dataResult){
         $('#deleteEmployeeModal').modal('hide');
         $("#"+dataResult).remove();
@@ -74,8 +79,11 @@ $(document).on("click", "#delete", function() {
 $(document).on("click", "#delete_multiple", function() {
   var user = [];
   $(".user_checkbox:checked").each(function() {
-    user.push($(this).data('user-id'));
+    var id = $(this).data('user-id');
+    var syscode = $(this).data('syscode');
+    user.push(`(${id}, ${syscode})`);
   });
+  console.log(user)
   if(user.length <=0) {
     alert("Please select records."); 
   } 
@@ -94,10 +102,11 @@ $(document).on("click", "#delete_multiple", function() {
           id : selected_values
         },
         success: function(response) {
-          var ids = response.split(",");
-          for (var i=0; i < ids.length; i++ ) {	
-            $("#"+ids[i]).remove(); 
-          }	
+          $(".user_checkbox:checked").each(function() {
+            var id = $(this).data('user-id');
+            var syscode = $(this).data('syscode');
+            $("#"+id).remove();
+          });        
         } 
       }); 
     }  

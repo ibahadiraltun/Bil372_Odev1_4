@@ -30,7 +30,7 @@ if(count($_POST)>0){
     $city=$_POST['city'];
     $district=$_POST['district'];
 		$type=$_POST['_type'];
-		$sql = "UPDATE `organizations` SET `org_name`='$name',`org_abstract`='$abstract',`org_address`='$address',`org_city`='$city', `org_district`='$district',`org_type`='$type' WHERE id=$id";
+		$sql = "UPDATE `organizations` SET `org_name`='$name',`org_abstract`='$abstract',`org_address`='$address',`org_city`='$city', `org_district`='$district',`org_type`='$type' WHERE org_id=$id";
 		if (mysqli_query($link, $sql)) {
 			echo json_encode(array("statusCode"=>200));
 		} 
@@ -61,7 +61,7 @@ if(count($_POST)>0){
 			echo $id;
 		} 
 		else {
-			echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+			echo "Error: " . $sql . "<br>" . mysqli_error($link);
 		}
 		mysqli_close($link);
 	}

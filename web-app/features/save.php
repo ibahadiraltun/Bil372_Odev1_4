@@ -50,7 +50,7 @@ if(count($_POST)>0){
 			echo $id;
 		} 
 		else {
-			echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+			echo "Error: " . $sql . "<br>" . mysqli_error($link);
 		}
 		mysqli_close($link);
 	}
