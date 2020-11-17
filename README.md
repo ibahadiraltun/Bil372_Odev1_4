@@ -17,6 +17,8 @@ Daha sonra projeyi localinize cekiniz.
 git clone https://github.com/ibahadiraltun/Bil372_Odev1_4.git
 ```
 Sonrasinda ```sql_scripts/``` altinda sql scriptleri veritabaninizda calistirin ya da dump olarak koydugumuz sql scriptini calistirin. Projeyi indiridiğiniz dizine gidiniz ve asagidaki komutu giriniz.
+
+Not: web-app/config.php icerisini eger olusturdugunuz db isminin farkli olmasi durumunda guncelleyiniz. Default olarak imece oldugu varsayilmistir. 
 ## Calistirma
 ```
 cd web-app
