@@ -8,18 +8,19 @@ Furkan Dolasik <br />
 
 MySQL ve PHP yi bilgisayariniza kurunuz. Asagidaki linkleri kullanarak kurabilirsiniz. Veritabani kodlarini MySQL Workbech aracında yazdık.İstege bagli olarak kurulabilir, gerekli degildir.
 
-MySQL:https://www.sitepoint.com/how-to-install-mysql/
-Php : https://www.sitepoint.com/how-to-install-php-on-windows/
-MySQL Workbench: https://www.mysql.com/products/workbench/
+MySQL:https://www.sitepoint.com/how-to-install-mysql/ <br />
+Php : https://www.sitepoint.com/how-to-install-php-on-windows/ <br />
+MySQL Workbench: https://www.mysql.com/products/workbench/ <br />
 
 Daha sonra projeyi localinize cekiniz.
 ```
 git clone https://github.com/ibahadiraltun/Bil372_Odev1_4.git
 ```
-Sonrasinda sql scriptleri veritabaninizda calistirin. Projeyi indiridiğiniz dizine gidiniz ve asagidaki komutu giriniz.
+Sonrasinda sql scriptleri veritabaninizda calistirin. Ya da dump olarak koydugumuz sql scriptini calistirin. Projeyi indiridiğiniz dizine gidiniz ve asagidaki komutu giriniz.
 ## Calistirma
 ```
-cd web-app && php -S 127.0.0.1:8000
+cd web-app
+php -S 127.0.0.1:8000
 ```
 Browserda 127.0.0.1:8000/login.php ye gidin.
 ## User Manuel
