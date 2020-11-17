@@ -16,15 +16,16 @@ Daha sonra projeyi localinize cekiniz.
 ```
 git clone https://github.com/ibahadiraltun/Bil372_Odev1_4.git
 ```
-Sonrasinda ```sql_scripts/``` altinda sql scriptleri veritabaninizda calistirin ya da dump olarak koydugumuz sql scriptini calistirin. Projeyi indiridiğiniz dizine gidiniz ve asagidaki komutu giriniz.
+Sonrasinda ```sql_scripts/``` altinda sql scriptleri veritabaninizda calistirin ya da dump olarak koydugumuz sql scriptini calistirin. Projeyi indiridiğiniz dizine gidiniz ve calistirma bolumune geciniz.
 
-Not: web-app/config.php icerisini eger olusturdugunuz db isminin farkli olmasi durumunda guncelleyiniz. Default olarak imece oldugu varsayilmistir. 
+Not: ```web-app/config.php``` icerisini eger olusturdugunuz db isminin ve sifresinin farkli olmasi durumunda guncelleyiniz. Default olarak imece-abc123 oldugu varsayilmistir. 
 ## Calistirma
+Ornek kurulum ve calistirma videosu icin [buraya](https://www.youtube.com/watch?v=Fs5sXiKiB58) gidiniz.
 ```
 cd web-app
 php -S 127.0.0.1:8000
 ```
-Browserda 127.0.0.1:8000/login.php ye gidin.
+Browserda 127.0.0.1:8000/login.php ye gidiniz.
 ## User Manuel
 
 User Manuel dokumanina user-manuel klasorunden ulasabilirsiniz.Kullandigimiz frameworkler, veritabani sema diyagramimiz, ve ilgili formlarimiz bu ektedir.
