@@ -24,5 +24,5 @@ cd web-app && php -S 127.0.0.1:8000
 Browserda 127.0.0.1:8000/login.php ye gidin.
 ## User Manuel
 
-User Manuel dokumanina user-manuel klasorunden ulasabilirsiniz.Kullandigimiz frameworkler, veritabani sema diyagraminiz, ve ilgili formlarimiz bu ektedir.
+User Manuel dokumanina user-manuel klasorunden ulasabilirsiniz.Kullandigimiz frameworkler, veritabani sema diyagramimiz, ve ilgili formlarimiz bu ektedir.
 
