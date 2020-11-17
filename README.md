@@ -16,7 +16,7 @@ Daha sonra projeyi localinize cekiniz.
 ```
 git clone https://github.com/ibahadiraltun/Bil372_Odev1_4.git
 ```
-Sonrasinda sql scriptleri veritabaninizda calistirin. Ya da dump olarak koydugumuz sql scriptini calistirin. Projeyi indiridiğiniz dizine gidiniz ve asagidaki komutu giriniz.
+Sonrasinda ```sql_scripts/``` altinda sql scriptleri veritabaninizda calistirin ya da dump olarak koydugumuz sql scriptini calistirin. Projeyi indiridiğiniz dizine gidiniz ve asagidaki komutu giriniz.
 ## Calistirma
 ```
 cd web-app
