@@ -25,7 +25,10 @@ Ornek kurulum ve calistirma videosu icin [buraya](https://www.youtube.com/watch?
 cd web-app
 php -S 127.0.0.1:8000
 ```
-Browserda 127.0.0.1:8000/login.php ye gidiniz.
+Browserda 127.0.0.1:8000/login.php ye gidiniz. <br />
+Admin-user: admin <br />
+Admin-sifre: admin123 <br />
+Sifreler db uzerinde hashlenerek tutulmaktadir. <br />
 ## User Manuel
 
 User Manuel dokumanina user-manuel klasorunden ulasabilirsiniz.Kullandigimiz frameworkler, veritabani sema diyagramimiz, ve ilgili formlarimiz bu ektedir.
